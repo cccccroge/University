@@ -1,7 +1,9 @@
 # depslib dependency file v1.0
-1529691810 source:c:\users\nthucs\desktop\university\main.cpp
+1529697837 source:c:\users\nthucs\desktop\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Start_page.h"
 
 1372628331 c:\users\nthucs\desktop\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro.h
 	"allegro5/base.h"
@@ -230,4 +232,13 @@
 
 1372628331 c:\users\nthucs\desktop\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_font.h
 	"allegro5/allegro.h"
+
+1362327499 c:\users\nthucs\desktop\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_image.h
+
+1529699253 c:\users\nthucs\desktop\university\start_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529699203 source:c:\users\nthucs\desktop\university\start_page.cpp
+	"Start_page.h"
 

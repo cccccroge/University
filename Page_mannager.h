@@ -13,13 +13,11 @@ class Page_mannager
 public:
     Page_mannager(ALLEGRO_EVENT_QUEUE *q): event_queue(q), next_page_type(START)
     {
-//<<<<<<< HEAD
-        start_page = new Start_page(q, &next_page_type);
-//=======
-       // this->start_page = new Start_page(q, &next_page_type);
-      //  this->play_page = new Play_page(q, &next_page_type);
-     //   this->end_page = new End_page(q, &next_page_type);
-//>>>>>>> 05e5e467be03b33d97a714e58fb88c481e52814b
+
+        this->start_page = new Start_page(q, &next_page_type);
+        this->play_page = new Play_page(q, &next_page_type);
+        this->end_page = new End_page(q, &next_page_type);
+
     }
     bool run_page();
     int get_next_page_type() { return this->next_page_type; }

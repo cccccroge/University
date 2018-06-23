@@ -2,6 +2,12 @@
 
 enum PAGE_TYPE { START = 1, PLAY, END};
 
+void End_page::init()
+{
+    al_clear_to_color(al_map_rgb(255, 0, 0));
+    al_flip_display();
+}
+
 bool End_page::run()
 {
     while (1) {

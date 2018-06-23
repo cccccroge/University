@@ -2,7 +2,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 
-#include "Start_page.h"
+#include "Page_mannager.h"
 
 #define GAME_WIDTH 1280
 #define GAME_HEIGHT 720
@@ -27,11 +27,17 @@ int main()
 
 
     // main loop
-    Start_page *start_page = new Start_page(event_queue);
-    start_page->run();
+    Page_mannager *pm = new Page_mannager(event_queue);
+    while (1) {
+        if (pm->run_page())
+            continue;
+        else
+            break;
+    }
 
 
     // free memory
+    delete pm;
     al_destroy_display(display);
     al_uninstall_keyboard();
     al_shutdown_image_addon();

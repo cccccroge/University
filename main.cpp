@@ -34,8 +34,10 @@ int main()
                 << pm->get_next_page_type() << std::endl;
             continue;
         }
-        else
+        else {
+            std::cout << "terminate main loop." << std::endl;
             break;
+        }
     }
 
 

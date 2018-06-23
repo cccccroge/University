@@ -242,7 +242,7 @@
 1529699203 source:c:\users\nthucs\desktop\university\start_page.cpp
 	"Start_page.h"
 
-1529745269 source:d:\code\c_programming_ii\final\game\university\main.cpp
+1529746708 source:d:\code\c_programming_ii\final\game\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -482,10 +482,26 @@
 1529745075 source:d:\code\c_programming_ii\final\game\university\start_page.cpp
 	"Start_page.h"
 
-1529745640 d:\code\c_programming_ii\final\game\university\page_mannager.h
+1529746519 d:\code\c_programming_ii\final\game\university\page_mannager.h
 	<allegro5/allegro.h>
 	"Start_page.h"
+	"Play_page.h"
+	"End_page.h"
 
-1529745438 source:d:\code\c_programming_ii\final\game\university\page_mannager.cpp
+1529746751 source:d:\code\c_programming_ii\final\game\university\page_mannager.cpp
 	"Page_mannager.h"
+
+1529746012 d:\code\c_programming_ii\final\game\university\play_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529746445 source:d:\code\c_programming_ii\final\game\university\end_page.cpp
+	"End_page.h"
+
+1529746268 d:\code\c_programming_ii\final\game\university\end_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529746385 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
+	"Play_page.h"
 

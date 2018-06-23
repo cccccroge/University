@@ -6,9 +6,9 @@ bool Page_mannager::run_page()
         return this->start_page->run();
     }
     else if (this->next_page_type == PLAY) {
-        return this->start_page->run();
+        return this->play_page->run();
     }
     else if (this->next_page_type == END) {
-        return this->start_page->run();
+        return this->end_page->run();
     }
 }

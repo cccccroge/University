@@ -40,6 +40,8 @@
 		<Linker>
 			<Add directory="allegro-5.0.10-mingw-4.7.0/lib" />
 		</Linker>
+		<Unit filename="Page_mannager.cpp" />
+		<Unit filename="Page_mannager.h" />
 		<Unit filename="Start_page.cpp" />
 		<Unit filename="Start_page.h" />
 		<Unit filename="main.cpp" />

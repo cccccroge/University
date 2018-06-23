@@ -44,12 +44,17 @@
 		<Unit filename="Button.h" />
 		<Unit filename="End_page.cpp" />
 		<Unit filename="End_page.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="Page_mannager.cpp" />
 		<Unit filename="Page_mannager.h" />
 		<Unit filename="Play_page.cpp" />
 		<Unit filename="Play_page.h" />
 		<Unit filename="Start_page.cpp" />
 		<Unit filename="Start_page.h" />
+		<Unit filename="Status_display.cpp" />
+		<Unit filename="Status_display.h" />
+		<Unit filename="global.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

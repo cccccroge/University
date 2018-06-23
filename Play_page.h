@@ -4,6 +4,8 @@
 #include <allegro5/allegro.h>
 #include <string>
 
+#include "Menu.h"
+
 class Play_page
 {
 public:
@@ -15,6 +17,7 @@ public:
 private:
     ALLEGRO_EVENT_QUEUE *event_queue;
     int *next_page_type;
+    Menu *menu;
 };
 
 #endif // PLAY_PAGE_H

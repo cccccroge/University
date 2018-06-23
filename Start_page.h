@@ -9,6 +9,7 @@ class Start_page
 public:
     Start_page(ALLEGRO_EVENT_QUEUE *q, int *t) : event_queue(q),
         next_page_type(t) {}
+    void init();
     bool run();
 
 private:

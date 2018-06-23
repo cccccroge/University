@@ -3,12 +3,18 @@
 bool Page_mannager::run_page()
 {
     if (this->next_page_type == START) {
+        this->start_page->init();
         return this->start_page->run();
     }
     else if (this->next_page_type == PLAY) {
+        this->play_page->init();
         return this->play_page->run();
     }
     else if (this->next_page_type == END) {
+        this->end_page->init();
         return this->end_page->run();
+    }
+    else {
+        return false;
     }
 }

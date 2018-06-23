@@ -8,15 +8,23 @@ void Button::alt_state()
 void Button::alt_image()
 {
     this->alt_state();
+    std::cout << "change image" << std::endl;
 
     if (this->state == 0) {
-        al_destroy_bitmap(this->default_image);
-        al_draw_bitmap(this->hover_image, this->x_pos, this->y_pos, 0);
-        //al_set_target_bitmap(this->default_image);
-        //al_clear_to_color()
+        al_draw_bitmap(this->default_image, this->x_pos - x_offset,
+            this->y_pos - y_offset, 0);
     }
     else if (this->state == 1){
-        al_destroy_bitmap(this->hover_image);
-        al_draw_bitmap(this->default_image, this->x_pos, this->y_pos, 0);
+        al_draw_bitmap(this->hover_image, this->x_pos - x_offset,
+            this->y_pos - y_offset, 0);
     }
+}
+
+bool Button::is_inside(int mouse_x, int mouse_y)
+{
+    if (   mouse_x >= this->left && mouse_x <= this->right
+        && mouse_y >= this->up && mouse_y <= this->down) {
+        return true;
+    }
+    return false;
 }

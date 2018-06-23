@@ -1,9 +1,21 @@
 #include <iostream>
 #include <allegro5/allegro.h>
+#include <stdio.h>
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_primitives.h>              //Our primitive header file
+#include <allegro5/allegro_native_dialog.h>
+#include <sstream>
 #include <allegro5/allegro_image.h>
+#include <iostream>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
+#include <math.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
+
 
 #include "Page_mannager.h"
-
+#include "Start_page.h"
 #define GAME_WIDTH 1280
 #define GAME_HEIGHT 720
 #define GAME_FPS 60

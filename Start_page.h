@@ -8,6 +8,7 @@
 
 class Start_page
 {
+    friend class Page_mannager;
 public:
     Start_page(ALLEGRO_EVENT_QUEUE *q, int *t) : event_queue(q),
         next_page_type(t) {}

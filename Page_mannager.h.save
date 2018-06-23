@@ -11,7 +11,7 @@ class Page_mannager
 public:
     Page_mannager(ALLEGRO_EVENT_QUEUE *q): event_queue(q), next_page_type(START)
     {
-        start_page = new Start_page(q, &next_page_type);
+        this->start_page = new Start_page(q, &next_page_type);
     }
     bool run_page();
 

@@ -27,4 +27,10 @@ void Status_display::draw()
         al_draw_textf(this->font, this->txt_color, this->txt_x, this->txt_y,
             0, "%s%.1f", this->text, this->num_float);
     }
+    else if (this->num_type == 2) {
+        int minute = this->num_int / 60;
+        int second = this->num_int % 60;
+        al_draw_textf(this->font, this->txt_color, this->txt_x, this->txt_y,
+            0, "%02d:%02d", minute, second);
+    }
 }

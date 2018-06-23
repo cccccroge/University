@@ -28,11 +28,13 @@ public:
 
         this->money_display = new Status_display(x + 30, y + 50, 60, 0,
             "assets/money_icon.png", "x ", "assets/KOMIKAX.ttf",
-            24, al_map_rgb(215, 215, 215), 0);
-
+            24, al_map_rgb(215, 215, 215), 0, 200);
         this->score_display = new Status_display(x + 20, y + 130, 70, 10,
             "assets/score_icon.png", "= ", "assets/KOMIKAX.ttf",
-            24, al_map_rgb(215, 215, 215), 1);
+            24, al_map_rgb(215, 215, 215), 1, 100.0);
+        this->time_display = new Status_display(x + 60, y + 600, 5, -40,
+            "assets/time_icon.png", ":", "assets/KOMIKAX.ttf",
+            24, al_map_rgb(215, 215, 215), 2, 0);
     }
     Status_display* get_money_display() { return this->money_display; }
     Status_display* get_score_display() { return this->score_display; }

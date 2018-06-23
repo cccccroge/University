@@ -7,6 +7,9 @@
 #include "global.cpp"
 #include "Page_mannager.h"
 
+ALLEGRO_TIMER *game_tick_timer;
+ALLEGRO_TIMER *count_second_timer;
+
 int main()
 {
     // initialization
@@ -21,13 +24,16 @@ int main()
     // create elements to  structure a game loop
     ALLEGRO_DISPLAY *display = al_create_display(GAME_WIDTH, GAME_HEIGHT);
     ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
-    ALLEGRO_TIMER *game_tick_timer = al_create_timer(1.0 / GAME_FPS);
+    game_tick_timer = al_create_timer(1.0 / GAME_FPS);
+    count_second_timer = al_create_timer(1.0);
 
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_mouse_event_source());
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(game_tick_timer));
+    al_register_event_source(event_queue, al_get_timer_event_source(count_second_timer));
     al_start_timer(game_tick_timer);
+    al_start_timer(count_second_timer);
 
 
     // main loop
@@ -55,6 +61,7 @@ int main()
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
     al_destroy_timer(game_tick_timer);
+    al_destroy_timer(count_second_timer);
 
     return 0;
 }

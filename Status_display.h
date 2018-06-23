@@ -17,7 +17,9 @@
 // font_path: true-font-type font file path
 // font_size: font size in pt
 // font_color: ALLEGRO_COLOR for font color
-// type: 0 means you want a integer displayer, 1 means float-point
+// type: 0 means you want a integer displayer,
+//       1 means float-point, and 2 means standard time system
+//       which draw 2 integers representing minute/second
 //
 // [ attention ]
 // 1.outside objects can change the number of UI via
@@ -34,9 +36,10 @@ class Status_display
 {
 public:
     Status_display(int x, int y, int txt_offset_x, int txt_offset_y,
-        char *img_path, char *pre_txt, char *font_path, int font_size, ALLEGRO_COLOR color, int type):
+        char *img_path, char *pre_txt, char *font_path, int font_size, ALLEGRO_COLOR color,
+        int type, float num):
         img_x(x), img_y(y), txt_x(x + txt_offset_x), txt_y(y + txt_offset_y), num_type(type),
-        num_int(0), num_float(0.0), text(pre_txt)
+        num_int((int)num), num_float(num), text(pre_txt)
     {
         this->img = al_load_bitmap(img_path);
         this->font = al_load_font(font_path, font_size, 0);

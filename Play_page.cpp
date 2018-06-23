@@ -2,6 +2,8 @@
 #include "global.cpp"
 
 enum PAGE_TYPE { START = 1, PLAY, END};
+extern ALLEGRO_TIMER *count_second_timer;
+extern ALLEGRO_TIMER *game_tick_timer;
 
 void Play_page::init()
 {
@@ -36,10 +38,14 @@ bool Play_page::run()
             return false;
         }
         else if (e.type == ALLEGRO_EVENT_TIMER) {
-            // redraw every things
-            this->menu->draw();
-
-            al_flip_display();
+            if (e.timer.source == count_second_timer) {
+                this->menu->get_time_display()->update_int(1);
+            }
+            else if (e.timer.source == game_tick_timer) {
+                // redraw every things
+                this->menu->draw();
+                al_flip_display();
+            }
         }
     }
 }

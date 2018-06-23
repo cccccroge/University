@@ -508,7 +508,7 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529778491 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
+1529786818 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
 	"Play_page.h"
 	"global.cpp"
 
@@ -519,15 +519,15 @@
 	<allegro5/allegro.h>
 	<iostream>
 
-1529767059 source:d:\code\c_programming_ii\final\game\university\global.cpp
+1529778594 source:d:\code\c_programming_ii\final\game\university\global.cpp
 
 1529778594 d:\code\c_programming_ii\final\game\university\global.cpp
 
-1529778341 d:\code\c_programming_ii\final\game\university\menu.h
+1529785928 d:\code\c_programming_ii\final\game\university\menu.h
 	<allegro5/allegro.h>
 	"Status_display.h"
 
-1529778048 source:d:\code\c_programming_ii\final\game\university\menu.cpp
+1529785185 source:d:\code\c_programming_ii\final\game\university\menu.cpp
 	"Menu.h"
 
 1529732092 d:\code\c_programming_ii\final\game\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_font.h
@@ -537,10 +537,11 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
-1529777926 source:d:\code\c_programming_ii\final\game\university\status_display.cpp
+1529785838 source:d:\code\c_programming_ii\final\game\university\status_display.cpp
 	"Status_display.h"
+	"global.cpp"
 
-1529777902 d:\code\c_programming_ii\final\game\university\status_display.h
+1529785653 d:\code\c_programming_ii\final\game\university\status_display.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>

@@ -1,8 +1,8 @@
-#include "Start_page.h"
+#include "Play_page.h"
 
 enum PAGE_TYPE { START = 1, PLAY, END};
 
-bool Start_page::run()
+bool Play_page::run()
 {
     while (1) {
         ALLEGRO_EVENT e;
@@ -10,7 +10,11 @@ bool Start_page::run()
 
         if (e.type == ALLEGRO_EVENT_KEY_DOWN) {
             if (e.keyboard.keycode == ALLEGRO_KEY_N) {
-                *(this->next_page_type) = PLAY;
+                *(this->next_page_type) = END;
+                return true;
+            }
+            else if (e.keyboard.keycode == ALLEGRO_KEY_B) {
+                *(this->next_page_type) = START;
                 return true;
             }
         }
@@ -19,5 +23,6 @@ bool Start_page::run()
         }
     }
 }
+
 
 

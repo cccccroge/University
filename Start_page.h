@@ -3,9 +3,7 @@
 
 #include <allegro5/allegro.h>
 #include <string>
-
-#include "Page_mannager.h"
-
+#include"Page_mannager.h"
 class Start_page
 {
     friend class Page_mannager;

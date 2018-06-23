@@ -242,7 +242,7 @@
 1529699203 source:c:\users\nthucs\desktop\university\start_page.cpp
 	"Start_page.h"
 
-1529735489 source:d:\code\c_programming_ii\final\game\university\main.cpp
+1529746708 source:d:\code\c_programming_ii\final\game\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
@@ -475,22 +475,25 @@
 
 1529732092 d:\code\c_programming_ii\final\game\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_image.h
 
-1529737463 d:\code\c_programming_ii\final\game\university\start_page.h
+1529745481 d:\code\c_programming_ii\final\game\university\start_page.h
 	<allegro5/allegro.h>
 	<string>
-	"Page_mannager.h"
 
-1529732091 source:d:\code\c_programming_ii\final\game\university\start_page.cpp
+1529745075 source:d:\code\c_programming_ii\final\game\university\start_page.cpp
 	"Start_page.h"
 
-1529738414 d:\code\c_programming_ii\final\game\university\page_mannager.h
+1529746519 d:\code\c_programming_ii\final\game\university\page_mannager.h
 	<allegro5/allegro.h>
 	"Start_page.h"
+	"Play_page.h"
+	"End_page.h"
 
-1529737398 source:d:\code\c_programming_ii\final\game\university\page_mannager.cpp
+1529746751 source:d:\code\c_programming_ii\final\game\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529743992 source:c:\users\user\desktop\myapp\university\main.cpp
+1529746751 D
+
+1529758100 source:c:\users\user\desktop\myapp\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<stdio.h>
@@ -735,16 +738,18 @@
 
 1529734058 c:\users\user\desktop\myapp\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_image.h
 
-1529743808 c:\users\user\desktop\myapp\university\page_mannager.h
+1529768637 c:\users\user\desktop\myapp\university\page_mannager.h
 	<allegro5/allegro.h>
 	"Start_page.h"
+	"Play_page.h"
+	"End_page.h"
 
-1529743693 c:\users\user\desktop\myapp\university\start_page.h
+1529768626 c:\users\user\desktop\myapp\university\start_page.h
 	<allegro5/allegro.h>
 	<string>
 	"Page_mannager.h"
 
-1529742064 source:c:\users\user\desktop\myapp\university\page_mannager.cpp
+1529758100 source:c:\users\user\desktop\myapp\university\page_mannager.cpp
 	"Page_mannager.h"
 
 1529734058 c:\users\user\desktop\myapp\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_primitives.h
@@ -766,4 +771,39 @@
 1529734058 c:\users\user\desktop\myapp\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_ttf.h
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
+
+1529734058 allegro_font.h"
+
+1529746012 d:\code\c_programming_ii\final\game\university\play_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529746445 source:d:\code\c_programming_ii\final\game\university\end_page.cpp
+	"End_page.h"
+
+1529746268 d:\code\c_programming_ii\final\game\university\end_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529746385 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
+	"Play_page.h"
+
+1529746385 5e467be03b33d97a714e58fb88c481e52814b
+
+1529758100 source:c:\users\user\desktop\myapp\university\end_page.cpp
+	"End_page.h"
+
+1529758100 c:\users\user\desktop\myapp\university\end_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529758100 c:\users\user\desktop\myapp\university\play_page.h
+	<allegro5/allegro.h>
+	<string>
+
+1529758100 source:c:\users\user\desktop\myapp\university\play_page.cpp
+	"Play_page.h"
+
+1529758100 source:c:\users\user\desktop\myapp\university\start_page.cpp
+	"Start_page.h"
 

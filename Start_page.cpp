@@ -1,5 +1,7 @@
 #include "Start_page.h"
 
+enum PAGE_TYPE { START = 1, PLAY, END};
+
 bool Start_page::run()
 {
     while (1) {

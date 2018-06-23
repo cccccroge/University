@@ -29,8 +29,11 @@ int main()
     // main loop
     Page_mannager *pm = new Page_mannager(event_queue);
     while (1) {
-        if (pm->run_page())
+        if (pm->run_page()) {
+            std::cout << "end of current page, next is "
+                << pm->get_next_page_type() << std::endl;
             continue;
+        }
         else
             break;
     }

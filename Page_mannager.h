@@ -14,6 +14,7 @@ public:
         this->start_page = new Start_page(q, &next_page_type);
     }
     bool run_page();
+    int get_next_page_type() { return this->next_page_type; }
 
 private:
     ALLEGRO_EVENT_QUEUE *event_queue;

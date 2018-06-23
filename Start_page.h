@@ -4,8 +4,6 @@
 #include <allegro5/allegro.h>
 #include <string>
 
-#include "Page_mannager.h"
-
 class Start_page
 {
 public:

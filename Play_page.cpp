@@ -12,7 +12,7 @@ void Play_page::init()
 {
     al_clear_to_color(al_map_rgb(0, 128, 0));
 
-
+    font = al_load_ttf_font("assets/terminal.ttf", 20, 0);
     this->menu = new Menu(LEVEL_WIDTH, 0);
 
     al_draw_bitmap(bg_play, 0, 0, 0);
@@ -64,7 +64,7 @@ void Play_page::print_road(){
 
             }
             // For debug usage, if you want to create a new map, you may turn off this comment.
-             //al_draw_text(font, al_map_rgb(0, 0, 0), j*40 + 20, i*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
+             al_draw_text(font, al_map_rgb(0, 0, 0), i*40 + 20, j*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
         }
     }
    //system("pause");

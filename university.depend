@@ -498,7 +498,7 @@
 
 1529818301 D
 
-1529845565 source:c:\users\user\desktop\myapp\university\main.cpp
+1529850440 source:c:\users\user\desktop\myapp\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<stdio.h>
@@ -804,7 +804,7 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529825342 c:\users\user\desktop\myapp\university\play_page.h
+1529850410 c:\users\user\desktop\myapp\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
 	<vector>

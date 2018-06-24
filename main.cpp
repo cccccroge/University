@@ -34,6 +34,7 @@ int main()
     game_tick_timer = al_create_timer(1.0 / GAME_FPS);
     count_second_timer = al_create_timer(1.0);
 
+
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_mouse_event_source());
     al_register_event_source(event_queue, al_get_display_event_source(display));

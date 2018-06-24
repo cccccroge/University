@@ -19,6 +19,7 @@ public:
 private:
     ALLEGRO_BITMAP *bg_play ;
     ALLEGRO_EVENT_QUEUE *event_queue;
+    ALLEGRO_FONT *font;
     int *next_page_type;
     Menu *menu;
     bool levelMap[NumOfGrid];//NumOfGrid

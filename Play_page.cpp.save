@@ -10,8 +10,6 @@ extern ALLEGRO_TIMER *game_tick_timer;
 //static int _time=0;
 void Play_page::init()
 {
-
-
     al_clear_to_color(al_map_rgb(0, 128, 0));
 
 
@@ -60,7 +58,7 @@ void Play_page::print_road(){
             char buffer[50];
             sprintf(buffer, "%d", i + j*27);
             if(levelMap[i+j*27]) {
-                cout<<i<<" "<<j<<endl;
+                //cout<<i<<" "<<j<<endl;
                 al_draw_filled_rectangle(i*40, j*40, i*40+40, j*40+40, al_map_rgb(255, 244, 173));
                 //al_draw_filled_rectangle(0, 0, 40, 40, al_map_rgb(255, 244, 173));
 
@@ -134,14 +132,10 @@ bool Play_page::run()
             }
             else if (e.timer.source == game_tick_timer) {
                 // redraw every things
-<<<<<<< HEAD
                 al_draw_bitmap(bg_play, 0, 0, 0);
                 //_time++;
                 //cout<<_time<<endl;
                 print_road();
-=======
-                al_clear_to_color(al_map_rgb(0, 128, 0));
->>>>>>> 21c2864caa969e81af740ad8908cff27f39c29fd
                 this->menu->draw();
                 al_flip_display();
             }

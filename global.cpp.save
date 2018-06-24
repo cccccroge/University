@@ -7,5 +7,6 @@
 #define grid_width 40
 #define grid_height 40
 #define NumOfGrid (LEVEL_WIDTH / grid_width) * (LEVEL_HEIGHT / grid_height)
+#define Num_MonsterType 4
 
 #define MAX_SCORE 100.0

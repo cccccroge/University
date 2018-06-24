@@ -7,6 +7,7 @@
 #define grid_width 40
 #define grid_height 40
 #define NumOfGrid (LEVEL_WIDTH / grid_width) * (LEVEL_HEIGHT / grid_height)
+#define Num_MonsterType 4
 
 #define MAX_SCORE 100.0
 
@@ -16,3 +17,4 @@
 #define TOWER_1_COST_LEVEL2 150
 #define TOWER_2_COST_LEVEL1 200
 #define TOWER_2_COST_LEVEL2 300
+//enum {WOLF = 0, WOLFKNIGHT, DEMONNIJIA, CAVEMAN};

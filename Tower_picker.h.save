@@ -60,20 +60,36 @@ public:
                 y_tmp, y_tmp + this->h);
             y_tmp += this->h;
         }
+        button[0][0]=x;
+        button[0][1]=y;
+        button_origin[0][0]=x;
+        button_origin[0][1]=y;
+        for(int i=1;i<3;i++){
+            button[i][0]=x+w*i;
+            button_origin[i][0]=x+w*i;
+            button[i][1]=y+h*i;
+            button_origin[i][1]=y+h*i;
+        }
     }
     int is_inside_one(int mouse_x, int mouse_y);
     void set_expanded_num(int n) { this->expanded_num = n; }
     int get_expanded_num() { return this->expanded_num; }
+    bool getTouch(){return touch;}
     void draw();
+    int inside_num=-1;
+    void set_button(int inside_num);
 
 private:
     int x, y;
     int capacity;
     int w, h;
     int w_expand, h_expand;
+    bool touch=false;
     std::vector<ALLEGRO_BITMAP*> *buttons;
     std::vector<Rectangle_boundary*> *buttons_boundary;
     int expanded_num;
+    int button[3][2];
+    int button_origin[3][2];
 };
 
 

@@ -819,7 +819,7 @@
 	<iostream>
 	<stdlib.h>
 
-1529868565 source:c:\users\user\desktop\myapp\university\play_page.cpp
+1529878222 source:c:\users\user\desktop\myapp\university\play_page.cpp
 	"Play_page.h"
 	"Monster.cpp"
 	<allegro5/allegro_primitives.h>
@@ -1212,12 +1212,12 @@
 1529831278 source:d:\project\allegro\university\tower_picker.cpp
 	"Tower_picker.h"
 
-1529846401 c:\users\user\desktop\myapp\university\tower_picker.h
+1529876712 c:\users\user\desktop\myapp\university\tower_picker.h
 	<allegro5/allegro.h>
 	"Button.h"
 	<vector>
 
-1529846401 source:c:\users\user\desktop\myapp\university\tower_picker.cpp
+1529878174 source:c:\users\user\desktop\myapp\university\tower_picker.cpp
 	"Tower_picker.h"
 
 1529863283 c:\users\user\desktop\myapp\university\wolfknight.h

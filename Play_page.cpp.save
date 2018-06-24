@@ -139,25 +139,49 @@ bool Play_page::run()
         }
         else if (e.type == ALLEGRO_EVENT_MOUSE_AXES) {
             // check if cursor is inside or outside any tower_picker buttons
-            int x = e.mouse.x;
-            int y = e.mouse.y;
-            int inside_num = this->menu->get_tower_picker()
-                ->is_inside_one(x, y);
-            int expanded_num = this->menu->get_tower_picker()
-                    ->get_expanded_num();
-
-            if (inside_num != -1) {
-                if (inside_num != expanded_num) {
-                    cout<<"miku\n";
-                    this->menu->get_tower_picker()->set_expanded_num(inside_num);
+            /*
+            if(!menu->get_tower_picker()->getTouch()){
+                int x = e.mouse.x;
+                int y = e.mouse.y;
+                int inside_num = this->menu->get_tower_picker()
+                    ->is_inside_one(x, y);
+                int expanded_num = this->menu->get_tower_picker()
+                        ->get_expanded_num();
+                //cout<<expanded_num<<" "<<inside_num<<endl;
+                if (inside_num != -1) {
+                    if (inside_num != expanded_num) {
+                        //cout<<"miku\n";
+                        this->menu->get_tower_picker()->set_expanded_num(inside_num);
+                        menu->get_tower_picker()->touch=true;
+                    }
+                }/*
+                else {
+                    if (expanded_num != -1) {
+                    //cout<<"02020202002020202222222222\n";
+                        system("pause");
+                        this->menu->get_tower_picker()->set_expanded_num(-1);
+                    }
+                }*/
+                int x = e.mouse.x;
+                int y = e.mouse.y;
+                cout<<menu->get_tower_picker()->inside_num<<endl;
+                if(menu->get_tower_picker()->inside_num==-1){
+                    menu->get_tower_picker()->inside_num=
+                    this->menu->get_tower_picker()->is_inside_one(x, y);
+                    if(menu->get_tower_picker()->inside_num!=-1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+                }else if(menu->get_tower_picker()->inside_num==0){
+                    menu->get_tower_picker()->inside_num=
+                    this->menu->get_tower_picker()->is_inside_one(x, y);
+                    if(menu->get_tower_picker()->inside_num!=0)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+                }else if(menu->get_tower_picker()->inside_num==1){
+                    menu->get_tower_picker()->inside_num=
+                    this->menu->get_tower_picker()->is_inside_one(x, y);
+                    if(menu->get_tower_picker()->inside_num!=1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+                }else if(menu->get_tower_picker()->inside_num==2){
+                    menu->get_tower_picker()->inside_num=
+                    this->menu->get_tower_picker()->is_inside_one(x, y);
+                    if(menu->get_tower_picker()->inside_num!=2)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
                 }
-            }
-            else {
-                if (expanded_num != -1) {
-                    cout<<"miku\n";
-                    this->menu->get_tower_picker()->set_expanded_num(-1);
-                }
-            }
         }
         else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             return false;

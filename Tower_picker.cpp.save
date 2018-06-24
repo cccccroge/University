@@ -17,9 +17,9 @@ int Tower_picker::is_inside_one(int mouse_x, int mouse_y)
     }else{
         if(mouse_x>=button[inside_num][0]&&mouse_y>=button[inside_num][1]&&
            mouse_y<=button[inside_num][1]+h+h_expand){
-           return inside_num;
-        }else if(0){
-
+           return inside_num; 
+        }else if(){
+            
         }
     }
     /*
@@ -53,7 +53,7 @@ void Tower_picker::set_button(int inside_num){
     }else if(inside_num==2){
         button[2][0]-=w_expand;
     }
-
+    
 }
 
 void Tower_picker::draw()

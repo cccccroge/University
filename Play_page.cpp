@@ -10,7 +10,9 @@ extern ALLEGRO_TIMER *game_tick_timer;
 //static int _time=0;
 void Play_page::init()
 {
-    //al_clear_to_color(al_map_rgb(0, 255, 0));
+    al_clear_to_color(al_map_rgb(0, 128, 0));
+
+
     this->menu = new Menu(LEVEL_WIDTH, 0);
 
     al_draw_bitmap(bg_play, 0, 0, 0);
@@ -56,7 +58,7 @@ void Play_page::print_road(){
             char buffer[50];
             sprintf(buffer, "%d", i + j*27);
             if(levelMap[i+j*27]) {
-                cout<<i<<" "<<j<<endl;
+                //cout<<i<<" "<<j<<endl;
                 al_draw_filled_rectangle(i*40, j*40, i*40+40, j*40+40, al_map_rgb(255, 244, 173));
                 //al_draw_filled_rectangle(0, 0, 40, 40, al_map_rgb(255, 244, 173));
 
@@ -87,6 +89,38 @@ bool Play_page::run()
             else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_PLUS||e.keyboard.keycode == 136) {
                 this->menu->get_money_display()->update_int(50);
                 this->menu->get_score_display()->update_float(5.27);
+            }
+            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_0) {
+                this->menu->get_tower_picker()->set_expanded_num(-1);
+            }
+            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_1) {
+                this->menu->get_tower_picker()->set_expanded_num(0);
+            }
+            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_2) {
+                this->menu->get_tower_picker()->set_expanded_num(1);
+            }
+            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_3) {
+                this->menu->get_tower_picker()->set_expanded_num(2);
+            }
+        }
+        else if (e.type == ALLEGRO_EVENT_MOUSE_AXES) {
+            // check if cursor is inside or outside any tower_picker buttons
+            int x = e.mouse.x;
+            int y = e.mouse.y;
+            int inside_num = this->menu->get_tower_picker()
+                ->is_inside_one(x, y);
+            int expanded_num = this->menu->get_tower_picker()
+                    ->get_expanded_num();
+
+            if (inside_num != -1) {
+                if (inside_num != expanded_num) {
+                    this->menu->get_tower_picker()->set_expanded_num(inside_num);
+                }
+            }
+            else {
+                if (expanded_num != -1) {
+                    this->menu->get_tower_picker()->set_expanded_num(-1);
+                }
             }
         }
         else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {

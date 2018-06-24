@@ -54,6 +54,8 @@
 		<Unit filename="Start_page.h" />
 		<Unit filename="Status_display.cpp" />
 		<Unit filename="Status_display.h" />
+		<Unit filename="Tower_picker.cpp" />
+		<Unit filename="Tower_picker.h" />
 		<Unit filename="global.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>

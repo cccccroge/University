@@ -42,10 +42,31 @@
 		</Linker>
 		<Unit filename="Button.cpp" />
 		<Unit filename="Button.h" />
+		<Unit filename="CaveMan.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Circle.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Circle.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="DemonNijia.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="End_page.cpp" />
 		<Unit filename="End_page.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="Monster.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Monster.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Object.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Page_mannager.cpp" />
 		<Unit filename="Page_mannager.h" />
 		<Unit filename="Play_page.cpp" />
@@ -56,6 +77,12 @@
 		<Unit filename="Status_display.h" />
 		<Unit filename="Tower_picker.cpp" />
 		<Unit filename="Tower_picker.h" />
+		<Unit filename="Wolf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="WolfKnight.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="global.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>

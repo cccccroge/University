@@ -1,7 +1,7 @@
 #ifndef OBJECT_H_INCLUDED
 #define OBJECT_H_INCLUDED
 
-
+#include "Circle.h"
 class Object {
 public:
     Object() {}

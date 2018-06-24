@@ -498,7 +498,7 @@
 
 1529818301 D
 
-1529850440 source:c:\users\user\desktop\myapp\university\main.cpp
+1529868565 source:c:\users\user\desktop\myapp\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<stdio.h>
@@ -804,18 +804,24 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529850410 c:\users\user\desktop\myapp\university\play_page.h
+1529866517 c:\users\user\desktop\myapp\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
 	<vector>
+	"Monster.h"
 	"global.cpp"
 	"Menu.h"
-
-1529846577 source:c:\users\user\desktop\myapp\university\play_page.cpp
-	"Play_page.h"
-	"global.cpp"
+	"WolfKnight.h"
+	"CaveMan.h"
+	"Wolf.h"
+	"DemonNijia.h"
+	<stdio.h>
 	<iostream>
 	<stdlib.h>
+
+1529868565 source:c:\users\user\desktop\myapp\university\play_page.cpp
+	"Play_page.h"
+	"Monster.cpp"
 	<allegro5/allegro_primitives.h>
 
 1529819707 source:c:\users\user\desktop\myapp\university\start_page.cpp
@@ -866,16 +872,20 @@
 	<allegro5/allegro.h>
 	<iostream>
 
-1529825147 c:\users\user\desktop\myapp\university\global.cpp
+1529857624 c:\users\user\desktop\myapp\university\global.cpp
 
-1529825147 source:c:\users\user\desktop\myapp\university\global.cpp
+1529857624 source:c:\users\user\desktop\myapp\university\global.cpp
 
 1529846401 c:\users\user\desktop\myapp\university\menu.h
 	<allegro5/allegro.h>
 	"Status_display.h"
 	"Tower_picker.h"
 
-1529789451 c:\users\user\desktop\myapp\university\status_display.h
+1529864300 c:\users\user\desktop\myapp\university\status_display.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<cstring>
 
 1529818301 source:d:\project\allegro\university\button.cpp
 	"Button.h"
@@ -1170,7 +1180,7 @@
 1529846401 source:c:\users\user\desktop\myapp\university\menu.cpp
 	"Menu.h"
 
-1529789451 source:c:\users\user\desktop\myapp\university\status_display.cpp
+1529864300 source:c:\users\user\desktop\myapp\university\status_display.cpp
 	"Status_display.h"
 	"global.cpp"
 
@@ -1209,4 +1219,34 @@
 
 1529846401 source:c:\users\user\desktop\myapp\university\tower_picker.cpp
 	"Tower_picker.h"
+
+1529863283 c:\users\user\desktop\myapp\university\wolfknight.h
+	"Monster.h"
+
+1529863336 c:\users\user\desktop\myapp\university\monster.h
+	<stdio.h>
+	<string.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<vector>
+	"Object.h"
+	"Circle.h"
+	"global.cpp"
+
+1529857437 c:\users\user\desktop\myapp\university\object.h
+	"Circle.h"
+
+1529847831 c:\users\user\desktop\myapp\university\circle.h
+
+1529863333 c:\users\user\desktop\myapp\university\caveman.h
+	"Monster.h"
+
+1529863340 c:\users\user\desktop\myapp\university\wolf.h
+	"Monster.h"
+
+1529863338 c:\users\user\desktop\myapp\university\demonnijia.h
+	"Monster.h"
+
+1529869282 c:\users\user\desktop\myapp\university\monster.cpp
+	"Monster.h"
 

@@ -1,7 +1,7 @@
 #include "Play_page.h"
 #include "global.cpp"
-#include<iostream>
-#include<stdlib.h>
+#include <iostream>
+#include <stdlib.h>
 #include <allegro5/allegro_primitives.h>
 using namespace std;
 enum PAGE_TYPE { START = 1, PLAY, END};
@@ -10,14 +10,15 @@ extern ALLEGRO_TIMER *game_tick_timer;
 //static int _time=0;
 void Play_page::init()
 {
-    al_clear_to_color(al_map_rgb(0, 128, 0));
-
-
+    al_draw_bitmap(bg_play, 0, 0, 0);
     this->menu = new Menu(LEVEL_WIDTH, 0);
 
-    al_draw_bitmap(bg_play, 0, 0, 0);
-    cout<<"miku\n";
     al_flip_display();
+}
+
+bool compare_tower_y(Tower *t1, Tower *t2)
+{
+    return (t1->get_loc_y() < t2->get_loc_y());
 }
 
 void Play_page::print_road(){
@@ -70,6 +71,27 @@ void Play_page::print_road(){
    //system("pause");
 }
 
+void Play_page::print_construct_hint()
+{
+    ALLEGRO_COLOR color;
+    if (this->is_grid_constructable())
+        color = al_map_rgb(20, 200, 20);
+    else
+        color = al_map_rgb(200, 20, 20);
+
+    al_draw_rectangle(this->tile_grid_x * 40, this->tile_grid_y * 40,
+        this->tile_grid_x * 40 + 40, this->tile_grid_y * 40 + 40,
+        color, 2);
+}
+
+void Play_page::print_towers()
+{
+    for (std::list<Tower*>::iterator t = this->towers->begin();
+         t != this->towers->end(); t++) {
+        (*t)->draw();
+    }
+}
+
 bool Play_page::run()
 {
     while (1) {
@@ -90,23 +112,12 @@ bool Play_page::run()
                 this->menu->get_money_display()->update_int(50);
                 this->menu->get_score_display()->update_float(5.27);
             }
-            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_0) {
-                this->menu->get_tower_picker()->set_expanded_num(-1);
-            }
-            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_1) {
-                this->menu->get_tower_picker()->set_expanded_num(0);
-            }
-            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_2) {
-                this->menu->get_tower_picker()->set_expanded_num(1);
-            }
-            else if (e.keyboard.keycode == ALLEGRO_KEY_PAD_3) {
-                this->menu->get_tower_picker()->set_expanded_num(2);
-            }
         }
         else if (e.type == ALLEGRO_EVENT_MOUSE_AXES) {
-            // check if cursor is inside or outside any tower_picker buttons
             int x = e.mouse.x;
             int y = e.mouse.y;
+
+            // check if cursor is inside or outside any tower_picker buttons
             int inside_num = this->menu->get_tower_picker()
                 ->is_inside_one(x, y);
             int expanded_num = this->menu->get_tower_picker()
@@ -122,6 +133,61 @@ bool Play_page::run()
                     this->menu->get_tower_picker()->set_expanded_num(-1);
                 }
             }
+
+            // update tile grid
+            if (x <= LEVEL_WIDTH) {
+                this->tile_grid_x = floor(x / 40);
+                this->tile_grid_y = floor(y / 40);
+            }
+        }
+        else if (e.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
+            int x = e.mouse.x;
+            int y = e.mouse.y;
+
+            // change selected tower: select another or cancel selecting
+            int inside_num = this->menu->get_tower_picker()
+                ->is_inside_one(x, y);
+            if (inside_num != -1) {
+                if (inside_num != this->selected_tower) {
+                    int money = this->menu->get_money_display()->
+                        get_num_int();
+                    int cost;
+                    switch (inside_num) {
+                    case 0:
+                        cost = TOWER_0_COST_LEVEL1;
+                        break;
+                    case 1:
+                        cost = TOWER_1_COST_LEVEL1;
+                        break;
+                    case 2:
+                        cost = TOWER_2_COST_LEVEL1;
+                        break;
+                    }
+
+                    if (money >= cost) {
+                        this->selected_tower = inside_num;
+                    }
+                    else {
+                        // cannot select, no money
+
+                    }
+                }
+                else {
+                    this->selected_tower = -1;
+                }
+            }
+
+            // create tower if constructible + tower selected
+            bool ok = this->is_grid_constructable();
+            int selected = this->selected_tower;
+            if (ok && selected != -1) {
+                Tower *t = new Tower(this->tile_grid_x, this->tile_grid_y,
+                    -48, -139, 93, 161, 0, -106,
+                    "assets/big_tits_girl_tower.png", "assets/heart.png",
+                    100, 3, 30, 18, 30, TOWER_0_COST_LEVEL1);
+                this->towers->push_back(t);
+                this->towers->sort(compare_tower_y);
+            }
         }
         else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             return false;
@@ -136,6 +202,10 @@ bool Play_page::run()
                 //_time++;
                 //cout<<_time<<endl;
                 print_road();
+                this->print_towers();
+                if (this->selected_tower != -1) {
+                    this->print_construct_hint();
+                }
                 this->menu->draw();
                 al_flip_display();
             }
@@ -143,5 +213,20 @@ bool Play_page::run()
     }
 }
 
+bool Play_page::is_grid_constructable()
+{
+    bool ret = true;
+
+    // can't construct on road
+    if (this->levelMap[this->tile_grid_x + this->tile_grid_y * 27]) {
+        ret = false;
+    }
+    // can't construct on the tile which has been constructed
+    else if (this->towerMap[this->tile_grid_x][this->tile_grid_y] != -1) {
+        ret = false;
+    }
+
+    return ret;
+}
 
 

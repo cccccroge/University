@@ -9,3 +9,10 @@
 #define NumOfGrid (LEVEL_WIDTH / grid_width) * (LEVEL_HEIGHT / grid_height)
 
 #define MAX_SCORE 100.0
+
+#define TOWER_0_COST_LEVEL1 50
+#define TOWER_0_COST_LEVEL2 75
+#define TOWER_1_COST_LEVEL1 100
+#define TOWER_1_COST_LEVEL2 150
+#define TOWER_2_COST_LEVEL1 200
+#define TOWER_2_COST_LEVEL2 300

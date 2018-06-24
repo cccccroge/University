@@ -49,6 +49,8 @@ public:
     }
     void update_int(int dn);
     void update_float(float dn);
+    int get_num_int() { return this->num_int; }
+    int get_num_float() { return this->num_float; }
     void draw();
 
 private:

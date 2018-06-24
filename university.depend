@@ -1116,11 +1116,16 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529818305 source:d:\project\allegro\university\global.cpp
+1529870360 source:d:\project\allegro\university\global.cpp
 
-1529818305 source:d:\project\allegro\university\main.cpp
+1529847401 source:d:\project\allegro\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<sstream>
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -1136,30 +1141,40 @@
 	"allegro5/allegro.h"
 	"allegro5/allegro_font.h"
 
-1529818305 d:\project\allegro\university\global.cpp
+1529870360 d:\project\allegro\university\global.cpp
 
-1529818301 d:\project\allegro\university\page_mannager.h
+1529847401 d:\project\allegro\university\page_mannager.h
 	<allegro5/allegro.h>
 	"Start_page.h"
 	"Play_page.h"
 	"End_page.h"
 
-1529818301 d:\project\allegro\university\start_page.h
+1529847401 d:\project\allegro\university\start_page.h
 	<allegro5/allegro.h>
 	<string>
 	"Button.h"
 
-1529818301 d:\project\allegro\university\play_page.h
+1529878865 d:\project\allegro\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
+	<vector>
+	"global.cpp"
 	"Menu.h"
+	<stdio.h>
+	<cmath>
+	<list>
+	"Tower.h"
 
 1529831559 d:\project\allegro\university\menu.h
 	<allegro5/allegro.h>
 	"Status_display.h"
 	"Tower_picker.h"
 
-1529818301 d:\project\allegro\university\status_display.h
+1529868498 d:\project\allegro\university\status_display.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<cstring>
 
 1529831278 2864caa969e81af740ad8908cff27f39c29fd
 	<allegro5/allegro.h>
@@ -1182,11 +1197,14 @@
 1529818301 source:d:\project\allegro\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529818301 source:d:\project\allegro\university\play_page.cpp
+1529857777 source:d:\project\allegro\university\play_page.cpp
 	"Play_page.h"
 	"global.cpp"
+	<iostream>
+	<stdlib.h>
+	<allegro5/allegro_primitives.h>
 
-1529818301 source:d:\project\allegro\university\start_page.cpp
+1529847401 source:d:\project\allegro\university\start_page.cpp
 	"Start_page.h"
 	"global.cpp"
 
@@ -1199,7 +1217,7 @@
 	"Button.h"
 	<vector>
 
-1529831278 source:d:\project\allegro\university\tower_picker.cpp
+1529835453 source:d:\project\allegro\university\tower_picker.cpp
 	"Tower_picker.h"
 
 1529846401 c:\users\user\desktop\myapp\university\tower_picker.h
@@ -1209,4 +1227,27 @@
 
 1529846401 source:c:\users\user\desktop\myapp\university\tower_picker.cpp
 	"Tower_picker.h"
+
+1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_primitives.h
+	<allegro5/allegro.h>
+
+1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_native_dialog.h
+	"allegro5/allegro.h"
+
+1529857611 source:d:\project\allegro\university\bullet.cpp
+	"Bullet.h"
+
+1529857462 d:\project\allegro\university\bullet.h
+	<allegro5/allegro.h>
+	<cmath>
+	"global.cpp"
+
+1529855531 source:d:\project\allegro\university\tower.cpp
+	"Tower.h"
+
+1529877976 d:\project\allegro\university\tower.h
+	<allegro5/allegro.h>
+	"Bullet.h"
+	<vector>
+	<cmath>
 

@@ -242,10 +242,12 @@
 1529699203 source:c:\users\nthucs\desktop\university\start_page.cpp
 	"Start_page.h"
 
-1529763312 source:d:\code\c_programming_ii\final\game\university\main.cpp
+1529774694 source:d:\code\c_programming_ii\final\game\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
 	"global.cpp"
 	"Page_mannager.h"
 
@@ -496,7 +498,7 @@
 
 1529757961 D
 
-1529758100 source:c:\users\user\desktop\myapp\university\main.cpp
+1529845565 source:c:\users\user\desktop\myapp\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<stdio.h>
@@ -505,14 +507,10 @@
 	<allegro5/allegro_native_dialog.h>
 	<sstream>
 	<allegro5/allegro_image.h>
-	<iostream>
-	<allegro5/allegro_audio.h>
-	<allegro5/allegro_acodec.h>
-	<math.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
+	"global.cpp"
 	"Page_mannager.h"
-	"Start_page.h"
 
 1529734058 c:\users\user\desktop\myapp\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro.h
 	"allegro5/base.h"
@@ -777,11 +775,14 @@
 
 1529734058 allegro_font.h"
 
-1529757876 d:\code\c_programming_ii\final\game\university\play_page.h
+1529766482 d:\code\c_programming_ii\final\game\university\play_page.h
 
 1529759763 586898c06d10eda3f4a06fab6446b34dbbebf
+
+1529766482 26db2a07e0a632f6d099260d4f3f07c9a68b0
 	<allegro5/allegro.h>
 	<string>
+	"Menu.h"
 
 1529757950 source:d:\code\c_programming_ii\final\game\university\end_page.cpp
 	"End_page.h"
@@ -790,8 +791,9 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529757961 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
+1529786818 source:d:\code\c_programming_ii\final\game\university\play_page.cpp
 	"Play_page.h"
+	"global.cpp"
 
 1529746385 5e467be03b33d97a714e58fb88c481e52814b
 
@@ -802,14 +804,20 @@
 	<allegro5/allegro.h>
 	<string>
 
-1529773193 c:\users\user\desktop\myapp\university\play_page.h
+1529825342 c:\users\user\desktop\myapp\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
+	<vector>
+	"global.cpp"
+	"Menu.h"
 
-1529773193 source:c:\users\user\desktop\myapp\university\play_page.cpp
+1529845354 source:c:\users\user\desktop\myapp\university\play_page.cpp
 	"Play_page.h"
+	"global.cpp"
+	<iostream>
+	<allegro5/allegro_primitives.h>
 
-1529773193 source:c:\users\user\desktop\myapp\university\start_page.cpp
+1529819707 source:c:\users\user\desktop\myapp\university\start_page.cpp
 	"Start_page.h"
 	"global.cpp"
 
@@ -822,9 +830,33 @@
 	<allegro5/allegro.h>
 	<iostream>
 
-1529759763 source:d:\code\c_programming_ii\final\game\university\global.cpp
+1529778594 source:d:\code\c_programming_ii\final\game\university\global.cpp
 
-1529759763 d:\code\c_programming_ii\final\game\university\global.cpp
+1529778594 d:\code\c_programming_ii\final\game\university\global.cpp
+
+1529785928 d:\code\c_programming_ii\final\game\university\menu.h
+	<allegro5/allegro.h>
+	"Status_display.h"
+
+1529785185 source:d:\code\c_programming_ii\final\game\university\menu.cpp
+	"Menu.h"
+
+1529732092 d:\code\c_programming_ii\final\game\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_font.h
+	"allegro5/allegro.h"
+
+1529732092 d:\code\c_programming_ii\final\game\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_ttf.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_font.h"
+
+1529785838 source:d:\code\c_programming_ii\final\game\university\status_display.cpp
+	"Status_display.h"
+	"global.cpp"
+
+1529785653 d:\code\c_programming_ii\final\game\university\status_display.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<cstring>
 
 1529773193 source:c:\users\user\desktop\myapp\university\button.cpp
 	"Button.h"
@@ -833,5 +865,24 @@
 	<allegro5/allegro.h>
 	<iostream>
 
-1529773193 c:\users\user\desktop\myapp\university\global.cpp
+1529825147 c:\users\user\desktop\myapp\university\global.cpp
+
+1529825147 source:c:\users\user\desktop\myapp\university\global.cpp
+
+1529789451 c:\users\user\desktop\myapp\university\menu.h
+	<allegro5/allegro.h>
+	"Status_display.h"
+
+1529789451 c:\users\user\desktop\myapp\university\status_display.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<cstring>
+
+1529789451 source:c:\users\user\desktop\myapp\university\menu.cpp
+	"Menu.h"
+
+1529789451 source:c:\users\user\desktop\myapp\university\status_display.cpp
+	"Status_display.h"
+	"global.cpp"
 

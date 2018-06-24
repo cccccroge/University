@@ -1,13 +1,12 @@
 #include "Play_page.h"
-<<<<<<< HEAD
 #include "global.cpp"
 #include <iostream>
 #include <stdlib.h>
-=======
 #include "Monster.cpp"
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
 #include <allegro5/allegro_primitives.h>
+
 using namespace std;
+
 enum PAGE_TYPE { START = 1, PLAY, END};
 extern ALLEGRO_TIMER *count_second_timer;
 extern ALLEGRO_TIMER *game_tick_timer;
@@ -15,30 +14,21 @@ extern ALLEGRO_TIMER *monster_pro;
 //static int _time=0;
 void Play_page::init()
 {
-<<<<<<< HEAD
     al_draw_bitmap(bg_play, 0, 0, 0);
-=======
-    al_clear_to_color(al_map_rgb(0, 128, 0));
-
     font = al_load_ttf_font("assets/terminal.ttf", 20, 0);
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
     this->menu = new Menu(LEVEL_WIDTH, 0);
 
     al_flip_display();
+}
 
-<<<<<<< HEAD
 bool compare_tower_y(Tower *t1, Tower *t2)
 {
     return (t1->get_loc_y() < t2->get_loc_y());
 }
 
 void Play_page::print_road(){
-    char buffer1[5], buffer2[5];
-    FILE *file;
-=======
     char buffer1[20], buffer2[20];
     FILE *file, *file2;
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
 
     //sprintf(buffer1, "road.txt", level);
     file = fopen("road.txt", "r");
@@ -102,7 +92,7 @@ Play_page::create_monster()
     return m;
 }
 
-void Play_page::print_road(){
+/*void Play_page::print_road(){
 
     for(int i = 0; i < LEVEL_WIDTH/40; i++)//LEVEL_WIDTH =1080,  i=27
     {
@@ -121,7 +111,7 @@ void Play_page::print_road(){
         }
     }
    //system("pause");
-}
+}*/
 
 void Play_page::print_construct_hint()
 {
@@ -166,7 +156,6 @@ bool Play_page::run()
             }
         }
         else if (e.type == ALLEGRO_EVENT_MOUSE_AXES) {
-<<<<<<< HEAD
             int x = e.mouse.x;
             int y = e.mouse.y;
 
@@ -241,52 +230,6 @@ bool Play_page::run()
                 this->towers->push_back(t);
                 this->towers->sort(compare_tower_y);
             }
-=======
-            // check if cursor is inside or outside any tower_picker buttons
-            /*
-            if(!menu->get_tower_picker()->getTouch()){
-                int x = e.mouse.x;
-                int y = e.mouse.y;
-                int inside_num = this->menu->get_tower_picker()
-                    ->is_inside_one(x, y);
-                int expanded_num = this->menu->get_tower_picker()
-                        ->get_expanded_num();
-                //cout<<expanded_num<<" "<<inside_num<<endl;
-                if (inside_num != -1) {
-                    if (inside_num != expanded_num) {
-                        //cout<<"miku\n";
-                        this->menu->get_tower_picker()->set_expanded_num(inside_num);
-                        menu->get_tower_picker()->touch=true;
-                    }
-                }/*
-                else {
-                    if (expanded_num != -1) {
-                    //cout<<"02020202002020202222222222\n";
-                        system("pause");
-                        this->menu->get_tower_picker()->set_expanded_num(-1);
-                    }
-                }*/
-                int x = e.mouse.x;
-                int y = e.mouse.y;
-                cout<<menu->get_tower_picker()->inside_num<<endl;
-                if(menu->get_tower_picker()->inside_num==-1){
-                    menu->get_tower_picker()->inside_num=
-                    this->menu->get_tower_picker()->is_inside_one(x, y);
-                    if(menu->get_tower_picker()->inside_num!=-1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
-                }else if(menu->get_tower_picker()->inside_num==0){
-                    menu->get_tower_picker()->inside_num=
-                    this->menu->get_tower_picker()->is_inside_one(x, y);
-                    if(menu->get_tower_picker()->inside_num!=0)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
-                }else if(menu->get_tower_picker()->inside_num==1){
-                    menu->get_tower_picker()->inside_num=
-                    this->menu->get_tower_picker()->is_inside_one(x, y);
-                    if(menu->get_tower_picker()->inside_num!=1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
-                }else if(menu->get_tower_picker()->inside_num==2){
-                    menu->get_tower_picker()->inside_num=
-                    this->menu->get_tower_picker()->is_inside_one(x, y);
-                    if(menu->get_tower_picker()->inside_num!=2)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
-                }
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
         }
         else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             return false;
@@ -299,15 +242,12 @@ bool Play_page::run()
                 // redraw every things
                 al_draw_bitmap(bg_play, 0, 0, 0);
                 print_road();
-<<<<<<< HEAD
                 this->print_towers();
                 if (this->selected_tower != -1) {
                     this->print_construct_hint();
                 }
-=======
                 if(game_update_monster())return false;
                 if(monsterSet.size() == 0 && !al_get_timer_started(monster_pro))return false;
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
                 this->menu->draw();
                 for(int i=0; i<monsterSet.size(); i++)
                 {
@@ -324,7 +264,6 @@ bool Play_page::run()
     }
 }
 
-<<<<<<< HEAD
 bool Play_page::is_grid_constructable()
 {
     bool ret = true;
@@ -340,7 +279,7 @@ bool Play_page::is_grid_constructable()
 
     return ret;
 }
-=======
+
 bool Play_page::game_update_monster(){
     // update every monster
     // check if it is destroyed or reaches end point
@@ -376,7 +315,6 @@ bool Play_page::game_update_monster(){
         else */if(isReachEnd)
         {
             Monster *m = monsterSet[i];
->>>>>>> 5cc86d6b04afaa661ff0e39c473316ea9b508a56
 
             if(menu->get_score_display()->update_int(m->getDamage()))
                 return true;

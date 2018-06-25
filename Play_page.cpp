@@ -7,7 +7,7 @@
 
 using namespace std;
 
-enum PAGE_TYPE { START = 1, PLAY, END};
+enum PAGE_TYPE { START = 1, PLAY, END_WIN, END_LOSE };
 extern ALLEGRO_TIMER *count_second_timer;
 extern ALLEGRO_TIMER *game_tick_timer;
 extern ALLEGRO_TIMER *monster_pro;
@@ -105,7 +105,7 @@ void Play_page::print_road(){
 
             }
             // For debug usage, if you want to create a new map, you may turn off this comment.
-             al_draw_text(font, al_map_rgb(0, 0, 0), i*40 + 20, j*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
+             //al_draw_text(font, al_map_rgb(0, 0, 0), i*40 + 20, j*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
         }
     }
    //system("pause");
@@ -141,7 +141,7 @@ bool Play_page::run()
         if (e.type == ALLEGRO_EVENT_KEY_DOWN) {
             //cout<<e.keyboard.keycode <<endl;
             if (e.keyboard.keycode == ALLEGRO_KEY_N) {
-                *(this->next_page_type) = END;
+                *(this->next_page_type) = END_WIN;
                 return true;
             }
             else if (e.keyboard.keycode == ALLEGRO_KEY_B) {
@@ -156,22 +156,25 @@ bool Play_page::run()
         else if (e.type == ALLEGRO_EVENT_MOUSE_AXES) {
             int x = e.mouse.x;
             int y = e.mouse.y;
+            //cout<<menu->get_tower_picker()->inside_num<<endl;
+            if(menu->get_tower_picker()->inside_num==-1){
+                menu->get_tower_picker()->inside_num=
+                this->menu->get_tower_picker()->is_inside_one(x, y);
+                if(menu->get_tower_picker()->inside_num!=-1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+            }else if(menu->get_tower_picker()->inside_num==0){
+                menu->get_tower_picker()->inside_num=
+                this->menu->get_tower_picker()->is_inside_one(x, y);
+                //cout<<"miku\n";
+                if(menu->get_tower_picker()->inside_num!=0)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+            }else if(menu->get_tower_picker()->inside_num==1){
+                menu->get_tower_picker()->inside_num=
+                this->menu->get_tower_picker()->is_inside_one(x, y);
+                if(menu->get_tower_picker()->inside_num!=1)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
+            }else if(menu->get_tower_picker()->inside_num==2){
+                menu->get_tower_picker()->inside_num=
+                this->menu->get_tower_picker()->is_inside_one(x, y);
+                if(menu->get_tower_picker()->inside_num!=2)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
 
-            // check if cursor is inside or outside any tower_picker buttons
-            int inside_num = this->menu->get_tower_picker()
-                ->is_inside_one(x, y);
-            int expanded_num = this->menu->get_tower_picker()
-                    ->get_expanded_num();
-
-            if (inside_num != -1) {
-                if (inside_num != expanded_num) {
-                    this->menu->get_tower_picker()->set_expanded_num(inside_num);
-                }
-            }
-            else {
-                if (expanded_num != -1) {
-                    this->menu->get_tower_picker()->set_expanded_num(-1);
-                }
             }
 
             // update tile grid
@@ -183,7 +186,6 @@ bool Play_page::run()
         else if (e.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
             int x = e.mouse.x;
             int y = e.mouse.y;
-
             // change selected tower: select another or cancel selecting
             int inside_num = this->menu->get_tower_picker()
                 ->is_inside_one(x, y);
@@ -354,7 +356,7 @@ bool Play_page::game_update_monster(){
         {
             Monster *m = monsterSet[i];
 
-            if(menu->get_score_display()->update_float(-100))
+            if(menu->get_score_display()->update_float(-10))
                 return true;
 
             monsterSet.erase(monsterSet.begin() + i);

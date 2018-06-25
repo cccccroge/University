@@ -28,9 +28,11 @@ bool End_page::run()
         else if (e.type == ALLEGRO_EVENT_TIMER) {
             if (this->type == 0) {
                 al_draw_bitmap(this->bg_win, 0, 0, 0);
+                al_flip_display();
             }
             else {
                 al_draw_bitmap(this->bg_lose, 0, 0, 0);
+                al_flip_display();
             }
         }
     }

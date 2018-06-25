@@ -1,27 +1,102 @@
 #include "Tower_picker.h"
-
+using namespace std;
 int Tower_picker::is_inside_one(int mouse_x, int mouse_y)
 {
     int left = this->x;
     int right = this->x + this->w;
     if(inside_num==-1){
-       if (mouse_x >= left && mouse_y <= right) {
+       if (mouse_x >= left && mouse_x <= right) {
             int up = this->y;
             for (int i = 0; i < this->capacity; i++) {
                 if (mouse_y >= up && mouse_y <= up + this->h) {
+                    expanded_num=i;
                     return i;
                 }
                 up += this->h;
             }
-        }return -1;
-    }else{
-        if(mouse_x>=button[inside_num][0]&&mouse_y>=button[inside_num][1]&&
-           mouse_y<=button[inside_num][1]+h+h_expand){
-           return inside_num;
-        }else if(0){
-
+        }expanded_num=-1;
+        return -1;
+    }else if(inside_num==0){
+        if(mouse_x >= left-w_expand && mouse_x <= right){
+            if (mouse_y >= button[0][1] && mouse_y <= button[0][1] + this->h+h_expand) {
+                expanded_num=0;
+                return 0;
+            }
+            else if(mouse_x >= left && mouse_x <= right){
+                if(mouse_y>=button[1][1]&&mouse_y<=button[1][1] + this->h){
+                    expanded_num=1;
+                    return 1;
+                }else if(mouse_y>=button[2][1]&&mouse_y<=button[2][1] + this->h){
+                    expanded_num=2;
+                    return 2;
+                }
+                else{
+                    //std::cout<<"miku\n";
+                    expanded_num=-1;
+                    return -1;
+                }
+            }else {
+                expanded_num=-1;
+                return -1;
+            }
+        }else {
+            expanded_num=-1;
+            return -1;
+        }
+    }else if(inside_num==1){
+        if(mouse_x >= left-w_expand && mouse_x <= right){
+            if (mouse_y >= button[1][1] && mouse_y <= button[1][1] + this->h+h_expand) {
+                expanded_num=1;
+                return 1;
+            }
+            else if(mouse_x >= left && mouse_x <= right){
+                if(mouse_y>=button[0][1]&&mouse_y<=button[0][1] + this->h){
+                    expanded_num=0;
+                    return 0;
+                }else if(mouse_y>=button[2][1]&&mouse_y<=button[2][1] + this->h){
+                    expanded_num=2;
+                    return 2;
+                }
+                else{
+                    expanded_num=-1;
+                    return -1;
+                }
+            }else {
+                expanded_num=-1;
+                return -1;
+            }
+        }else {
+            expanded_num=-1;
+            return -1;
+        }
+    }else if(inside_num==2){
+        if(mouse_x >= left-w_expand && mouse_x <= right){
+            if (mouse_y >= button[2][1] && mouse_y <= button[2][1] + this->h+h_expand) {
+                expanded_num=2;
+                return 2;
+            }
+            else if(mouse_x >= left && mouse_x <= right){
+                if(mouse_y>=button[0][1]&&mouse_y<=button[0][1] + this->h){
+                    expanded_num=0;
+                    return 0;
+                }else if(mouse_y>=button[1][1]&&mouse_y<=button[1][1] + this->h){
+                    expanded_num=1;
+                    return 1;
+                }
+                else{
+                    expanded_num=-1;
+                    return -1;
+                }
+            }else {
+                expanded_num=-1;
+                return -1;
+            }
+        }else {
+            expanded_num=-1;
+            return -1;
         }
     }
+
     /*
     int left = this->x;
     int right = this->x + this->w;
@@ -45,11 +120,12 @@ void Tower_picker::set_button(int inside_num){
     }
     if(inside_num==0){
         button[0][0]-=w_expand;
-        button[1][1]+=h_expand+h;
-        button[2][1]+=h_expand+h*2;
+        //cout<<h<<" "<<h_expand<<endl;
+        button[1][1]=button[0][1]+h_expand+h;
+        button[2][1]=button[1][1]+(h_expand+h);
     }else if(inside_num==1){
         button[1][0]-=w_expand;
-        button[2][1]+=h_expand+h;
+        button[2][1]=button[1][1]+h_expand+h;
     }else if(inside_num==2){
         button[2][0]-=w_expand;
     }

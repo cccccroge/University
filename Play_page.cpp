@@ -164,7 +164,7 @@ bool Play_page::run()
                 }*/
                 int x = e.mouse.x;
                 int y = e.mouse.y;
-                cout<<menu->get_tower_picker()->inside_num<<endl;
+                //cout<<menu->get_tower_picker()->inside_num<<endl;
                 if(menu->get_tower_picker()->inside_num==-1){
                     menu->get_tower_picker()->inside_num=
                     this->menu->get_tower_picker()->is_inside_one(x, y);
@@ -172,6 +172,7 @@ bool Play_page::run()
                 }else if(menu->get_tower_picker()->inside_num==0){
                     menu->get_tower_picker()->inside_num=
                     this->menu->get_tower_picker()->is_inside_one(x, y);
+                    //cout<<"miku\n";
                     if(menu->get_tower_picker()->inside_num!=0)menu->get_tower_picker()->set_button(menu->get_tower_picker()->inside_num);
                 }else if(menu->get_tower_picker()->inside_num==1){
                     menu->get_tower_picker()->inside_num=

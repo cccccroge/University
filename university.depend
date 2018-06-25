@@ -1224,7 +1224,7 @@
 	<string>
 	"Button.h"
 
-1529898069 d:\project\allegro\university\play_page.h
+1529900232 d:\project\allegro\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
 	<vector>
@@ -1274,7 +1274,13 @@
 1529818301 source:d:\project\allegro\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529882934 source:d:\project\allegro\university\play_page.cpp
+1529899777 source:d:\project\allegro\university\play_page.cpp
+	"Play_page.h"
+	"global.cpp"
+	<iostream>
+	<stdlib.h>
+	"Monster.cpp"
+	<allegro5/allegro_primitives.h>
 
 1529847401 source:d:\project\allegro\university\start_page.cpp
 	"Start_page.h"
@@ -1317,7 +1323,7 @@
 1529896208 source:d:\project\allegro\university\tower.cpp
 	"Tower.h"
 
-1529896208 d:\project\allegro\university\tower.h
+1529900527 d:\project\allegro\university\tower.h
 	<allegro5/allegro.h>
 	"Bullet.h"
 	<vector>
@@ -1386,5 +1392,6 @@
 1529896463 d:\project\allegro\university\demonnijia.h
 	"Monster.h"
 
-1529880740 d:\project\allegro\university\monster.cpp
+1529896463 d:\project\allegro\university\monster.cpp
+	"Monster.h"
 

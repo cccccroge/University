@@ -47,6 +47,8 @@ public:
     Monster* create_monster();
     std::vector<int> ReturnPath() { return road_grid; }
     bool game_update_monster();
+    void check_monster_tower();
+    void check_tower_bullets();
 
 private:
     ALLEGRO_BITMAP *bg_play ;

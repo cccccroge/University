@@ -33,6 +33,10 @@ public:
     bool is_upgrading();
     int get_loc_x() { return this->loc_x; }
     int get_loc_y() { return this->loc_y; }
+    int get_bullet_x() { return this->bullet_x; }
+    int get_bullet_y() { return this->bullet_y; }
+    int get_fire_range() { return this->fire_range; }
+    int get_cost() { return this->cost; }
     std::vector<Bullet*>* get_bullets() { return this->bullets; }
 
 private:

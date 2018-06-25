@@ -1119,16 +1119,16 @@
 
 1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\alcompat.h
 
-1529818301 source:d:\project\allegro\university\end_page.cpp
+1529910030 source:d:\project\allegro\university\end_page.cpp
 	"End_page.h"
 
-1529818301 d:\project\allegro\university\end_page.h
+1529909719 d:\project\allegro\university\end_page.h
 	<allegro5/allegro.h>
 	<string>
 
 1529896858 source:d:\project\allegro\university\global.cpp
 
-1529896463 source:d:\project\allegro\university\main.cpp
+1529904862 source:d:\project\allegro\university\main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	<stdio.h>
@@ -1213,7 +1213,7 @@
 
 1529896858 d:\project\allegro\university\global.cpp
 
-1529847401 d:\project\allegro\university\page_mannager.h
+1529910092 d:\project\allegro\university\page_mannager.h
 	<allegro5/allegro.h>
 	"Start_page.h"
 	"Play_page.h"
@@ -1224,7 +1224,7 @@
 	<string>
 	"Button.h"
 
-1529900232 d:\project\allegro\university\play_page.h
+1529907120 d:\project\allegro\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
 	<vector>
@@ -1271,10 +1271,10 @@
 1529830063 source:d:\project\allegro\university\menu.cpp
 	"Menu.h"
 
-1529818301 source:d:\project\allegro\university\page_mannager.cpp
+1529909466 source:d:\project\allegro\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529899777 source:d:\project\allegro\university\play_page.cpp
+1529909927 source:d:\project\allegro\university\play_page.cpp
 	"Play_page.h"
 	"global.cpp"
 	<iostream>
@@ -1312,18 +1312,19 @@
 1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_native_dialog.h
 	"allegro5/allegro.h"
 
-1529896208 source:d:\project\allegro\university\bullet.cpp
+1529907603 source:d:\project\allegro\university\bullet.cpp
 	"Bullet.h"
 
-1529896208 d:\project\allegro\university\bullet.h
+1529907970 d:\project\allegro\university\bullet.h
 	<allegro5/allegro.h>
 	<cmath>
 	"global.cpp"
+	<iostream>
 
-1529896208 source:d:\project\allegro\university\tower.cpp
+1529903930 source:d:\project\allegro\university\tower.cpp
 	"Tower.h"
 
-1529900527 d:\project\allegro\university\tower.h
+1529908290 d:\project\allegro\university\tower.h
 	<allegro5/allegro.h>
 	"Bullet.h"
 	<vector>
@@ -1386,7 +1387,7 @@
 1529896463 d:\project\allegro\university\caveman.h
 	"Monster.h"
 
-1529896463 d:\project\allegro\university\wolf.h
+1529910103 d:\project\allegro\university\wolf.h
 	"Monster.h"
 
 1529896463 d:\project\allegro\university\demonnijia.h

@@ -49,6 +49,7 @@ public:
     bool game_update_monster();
     void check_monster_tower();
     void check_tower_bullets();
+    void check_bullets_monster();
 
 private:
     ALLEGRO_BITMAP *bg_play ;

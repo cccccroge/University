@@ -6,7 +6,7 @@
 #include "Play_page.h"
 #include "End_page.h"
 
-enum PAGE_TYPE { START = 1, PLAY, END};
+enum PAGE_TYPE { START = 1, PLAY, END_WIN, END_LOSE};
 
 class Page_mannager
 {

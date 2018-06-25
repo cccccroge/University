@@ -10,8 +10,12 @@ bool Page_mannager::run_page()
         this->play_page->init();
         return this->play_page->run();
     }
-    else if (this->next_page_type == END) {
-        this->end_page->init();
+    else if (this->next_page_type == END_WIN) {
+        this->end_page->init(0);
+        return this->end_page->run();
+    }
+    else if (this->next_page_type == END_LOSE) {
+        this->end_page->init(1);
         return this->end_page->run();
     }
     else {

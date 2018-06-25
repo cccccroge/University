@@ -14,7 +14,7 @@ public:
         direction_count[DOWN] = 4;
 
         HealthPoint = 100;
-        speed = 0;
+        speed = 10;
         worth = 5;
         score = 50;
         damage = 2;

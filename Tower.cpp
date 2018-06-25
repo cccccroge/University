@@ -24,7 +24,7 @@ bool Tower::is_entering_range(int x, int y, int r)
 {
     int dx = std::abs(x - this->bullet_x);
     int dy = std::abs(y - this->bullet_y);
-    int distance = std::pow(std::pow(dx, 2) + std::pow(dy, 2), 1/2);
+    int distance = std::pow(std::pow(dx, 2) + std::pow(dy, 2), 0.5);
 
     return (distance <= r + this->fire_range);
 }

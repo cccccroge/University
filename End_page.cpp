@@ -1,11 +1,10 @@
 #include "End_page.h"
 
-enum PAGE_TYPE { START = 1, PLAY, END};
+enum PAGE_TYPE { START = 1, PLAY, END_WIN, END_LOSE};
 
-void End_page::init()
+void End_page::init(int _type)
 {
-    al_clear_to_color(al_map_rgb(255, 0, 0));
-    al_flip_display();
+    this->type = _type;
 }
 
 bool End_page::run()
@@ -23,8 +22,16 @@ bool End_page::run()
                 return true;
             }
         }
-        if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+        else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             return false;
+        }
+        else if (e.type == ALLEGRO_EVENT_TIMER) {
+            if (this->type == 0) {
+                al_draw_bitmap(this->bg_win, 0, 0, 0);
+            }
+            else {
+                al_draw_bitmap(this->bg_lose, 0, 0, 0);
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ enum PAGE_TYPE { START = 1, PLAY, END};
 extern ALLEGRO_TIMER *count_second_timer;
 extern ALLEGRO_TIMER *game_tick_timer;
 extern ALLEGRO_TIMER *monster_pro;
+extern ALLEGRO_TIMER *tower_check_timer;
+
 //static int _time=0;
 void Play_page::init()
 {
@@ -218,13 +220,33 @@ bool Play_page::run()
             // create tower if constructible + tower selected
             bool ok = this->is_grid_constructable();
             int selected = this->selected_tower;
+
             if (ok && selected != -1) {
-                Tower *t = new Tower(this->tile_grid_x, this->tile_grid_y,
+                bool can_buy;
+                int money = this->menu->get_money_display()->get_num_int();
+                int cost;
+                switch (selected) {
+                case 0:
+                    cost = TOWER_0_COST_LEVEL1;
+                    break;
+                case 1:
+                    cost = TOWER_1_COST_LEVEL1;
+                    break;
+                case 2:
+                    cost = TOWER_2_COST_LEVEL1;
+                    break;
+                }
+
+                if (money >= cost) {
+                    Tower *t = new Tower(this->tile_grid_x, this->tile_grid_y,
                     -48, -139, 93, 161, 0, -106,
                     "assets/big_tits_girl_tower.png", "assets/heart.png",
-                    100, 3, 30, 18, 30, TOWER_0_COST_LEVEL1);
-                this->towers->push_back(t);
-                this->towers->sort(compare_tower_y);
+                    100, 10, 500, 18, 60, TOWER_0_COST_LEVEL1);
+
+                    this->towers->push_back(t);
+                    this->towers->sort(compare_tower_y);
+                    this->menu->get_money_display()->update_int(-(t->get_cost()));
+                }
             }
         }
         else if (e.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
@@ -234,12 +256,16 @@ bool Play_page::run()
             if (e.timer.source == count_second_timer) {
                 this->menu->get_time_display()->update_int(1);
             }
-            else if (e.timer.source == game_tick_timer) {
+            else if (e.timer.source == tower_check_timer) {
                 // check if any monster enter any range of tower
                 this->check_monster_tower();
-
+            }
+            else if (e.timer.source == game_tick_timer) {
                 // check if any bullet in towers should move/hit/delete
                 this->check_tower_bullets();
+
+                // check if any bullet in towers will hit monsters
+                this->check_bullets_monster();
 
                 // redraw every things
                 al_draw_bitmap(bg_play, 0, 0, 0);
@@ -258,8 +284,14 @@ bool Play_page::run()
                 al_flip_display();//road_grid
 
                 // check win or lose
-                if(game_update_monster())return false;
-                if(monsterSet.size() == 0 && !al_get_timer_started(monster_pro))return false;
+                if(game_update_monster()) {
+                    (*this->next_page_type) = 4;
+                    return true;
+                }
+                if(monsterSet.size() == 0 && !al_get_timer_started(monster_pro)) {
+                    (*this->next_page_type) = 3;
+                    return true;
+                }
             }
             else if(e.timer.source == monster_pro){
                 Monster *m = create_monster();
@@ -322,7 +354,7 @@ bool Play_page::game_update_monster(){
         {
             Monster *m = monsterSet[i];
 
-            if(menu->get_score_display()->update_int(m->getDamage()))
+            if(menu->get_score_display()->update_float(-100))
                 return true;
 
             monsterSet.erase(monsterSet.begin() + i);
@@ -343,9 +375,9 @@ void Play_page::check_monster_tower()
             int m_y = (*m)->getY();
             int m_r = (*m)->getRadius();
             if ((*t)->is_entering_range(m_x, m_y, m_r)) {
-                int t_x = (*t)->get_loc_x();
-                int t_y = (*t)->get_loc_y();
-                (*t)->fire_bullet(m_x - t_x, m_y - t_y);
+                int b_x = (*t)->get_bullet_x();
+                int b_y = (*t)->get_bullet_y();
+                (*t)->fire_bullet(m_x - b_x, m_y - b_y);
             }
         }
     }
@@ -353,12 +385,60 @@ void Play_page::check_monster_tower()
 
 void Play_page::check_tower_bullets()
 {
+
     for (std::list<Tower*>::iterator t = this->towers->begin();
          t != this->towers->end(); t++) {
         for (std::vector<Bullet*>::iterator b = (*t)->get_bullets()->begin();
              b != (*t)->get_bullets()->end(); b++) {
             // moves a bit
             (*b)->move_a_bit();
+            // check if out of bounds
+            if ((*b)->is_out_of_range() || (*b)->is_out_of_map()) {
+                std::vector<Bullet*>::iterator new_it = (*t)->get_bullets()->erase(b);
+
+                if (new_it == (*t)->get_bullets()->end())
+                    break;
+            }
+        }
+    }
+}
+
+void Play_page::check_bullets_monster()
+{
+    for (std::list<Tower*>::iterator t = this->towers->begin();
+         t != this->towers->end(); t++) {
+        bool should_break_bullets_loop = false;
+        for (std::vector<Bullet*>::iterator b = (*t)->get_bullets()->begin();
+             b != (*t)->get_bullets()->end(); b++) {
+            for (std::vector<Monster*>::iterator m = this->monsterSet.begin();
+                 m != this->monsterSet.end(); m++) {
+                int m_x = (*m)->getX();
+                int m_y = (*m)->getY();
+                int m_r = (*m)->getRadius();
+
+                if ((*b)->is_hitting_enemny(m_x, m_y, m_r)) {
+                    // remove bullet
+                    std::vector<Bullet*>::iterator new_b =
+                        (*t)->get_bullets()->erase(b);
+                    if (new_b == (*t)->get_bullets()->end()) {
+                        should_break_bullets_loop = true;
+                        break;
+                    }
+                    // damage the monster
+                    bool isDead = (*m)->Subtract_HP((*b)->get_damage());
+
+                    // remove monster if is dead
+                    if (isDead) {
+                        this->menu->get_money_display()->update_int(150);
+
+                        std::vector<Monster*>::iterator new_m = this->monsterSet.erase(m);
+                        if (new_m == this->monsterSet.end())
+                            break;
+                    }
+                }
+            }
+            if (should_break_bullets_loop)
+                break;
         }
     }
 }

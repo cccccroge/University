@@ -496,7 +496,7 @@
 1529758036 source:d:\code\c_programming_ii\final\game\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529878174 D
+1529880740 D
 
 1529868565 source:c:\users\user\desktop\myapp\university\main.cpp
 	<iostream>
@@ -1142,6 +1142,66 @@
 	"global.cpp"
 	"Page_mannager.h"
 
+1529880740 ter
+	<iostream>
+	<allegro5/allegro.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<sstream>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	"global.cpp"
+	"Page_mannager.h"
+	<allegro5/allegro.h>
+	<string>
+	<vector>
+	"Monster.h"
+	"global.cpp"
+	"Menu.h"
+	"WolfKnight.h"
+	"CaveMan.h"
+	"Wolf.h"
+	"DemonNijia.h"
+	<stdio.h>
+	<iostream>
+	<stdlib.h>
+	<cmath>
+	<list>
+	"Tower.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<cstring>
+	"Play_page.h"
+	"global.cpp"
+	<iostream>
+	<stdlib.h>
+	"Monster.cpp"
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro.h>
+	"Button.h"
+	<vector>
+	"Tower_picker.h"
+	<allegro5/allegro.h>
+	<cmath>
+	"global.cpp"
+	<allegro5/allegro.h>
+	"Bullet.h"
+	<vector>
+	<cmath>
+	<stdio.h>
+	<string.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<vector>
+	"Object.h"
+	"Circle.h"
+	"global.cpp"
+	"Monster.h"
+
 1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_image.h
 
 1529818302 d:\project\allegro\university\allegro-5.0.10-mingw-4.7.0\include\allegro5\allegro_font.h
@@ -1164,7 +1224,7 @@
 	<string>
 	"Button.h"
 
-1529897785 d:\project\allegro\university\play_page.h
+1529898069 d:\project\allegro\university\play_page.h
 	<allegro5/allegro.h>
 	<string>
 	<vector>
@@ -1214,13 +1274,7 @@
 1529818301 source:d:\project\allegro\university\page_mannager.cpp
 	"Page_mannager.h"
 
-1529897444 source:d:\project\allegro\university\play_page.cpp
-	"Play_page.h"
-	"global.cpp"
-	<iostream>
-	<stdlib.h>
-	"Monster.cpp"
-	<allegro5/allegro_primitives.h>
+1529882934 source:d:\project\allegro\university\play_page.cpp
 
 1529847401 source:d:\project\allegro\university\start_page.cpp
 	"Start_page.h"
@@ -1269,7 +1323,7 @@
 	<vector>
 	<cmath>
 
-1529896208 
+1529877976 
 
 1529863283 c:\users\user\desktop\myapp\university\wolfknight.h
 	"Monster.h"
@@ -1313,6 +1367,8 @@
 	"Circle.h"
 	"global.cpp"
 
+1529869282 86d6b04afaa661ff0e39c473316ea9b508a56
+
 1529896463 d:\project\allegro\university\object.h
 	"Circle.h"
 
@@ -1330,6 +1386,5 @@
 1529896463 d:\project\allegro\university\demonnijia.h
 	"Monster.h"
 
-1529896463 d:\project\allegro\university\monster.cpp
-	"Monster.h"
+1529880740 d:\project\allegro\university\monster.cpp
 

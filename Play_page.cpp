@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include "Monster.cpp"
 #include <allegro5/allegro_primitives.h>
+
 using namespace std;
+
 enum PAGE_TYPE { START = 1, PLAY, END};
 extern ALLEGRO_TIMER *count_second_timer;
 extern ALLEGRO_TIMER *game_tick_timer;
@@ -12,7 +14,6 @@ extern ALLEGRO_TIMER *monster_pro;
 //static int _time=0;
 void Play_page::init()
 {
-
     al_draw_bitmap(bg_play, 0, 0, 0);
     font = al_load_ttf_font("assets/terminal.ttf", 20, 0);
     this->menu = new Menu(LEVEL_WIDTH, 0);
@@ -262,7 +263,6 @@ bool Play_page::run()
         }
     }
 }
-
 
 bool Play_page::is_grid_constructable()
 {

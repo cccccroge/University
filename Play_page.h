@@ -21,6 +21,7 @@
 bool compare_tower_y(Tower *t1, Tower *t2);
 
 enum {WOLF = 0, WOLFKNIGHT, DEMONNIJIA, CAVEMAN};
+
 class Play_page
 {
 public:

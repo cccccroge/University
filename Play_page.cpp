@@ -237,6 +237,12 @@ bool Play_page::run()
                 this->menu->get_time_display()->update_int(1);
             }
             else if (e.timer.source == game_tick_timer) {
+                // check if any monster enter any range of tower
+                this->check_monster_tower();
+
+                // check if any bullet in towers should move/hit/delete
+                this->check_tower_bullets();
+
                 // redraw every things
                 al_draw_bitmap(bg_play, 0, 0, 0);
                 print_road();
@@ -329,3 +335,32 @@ bool Play_page::game_update_monster(){
     return false;
 }
 
+void Play_page::check_monster_tower()
+{
+    for (std::list<Tower*>::iterator t = this->towers->begin();
+         t != this->towers->end(); t++) {
+        for (std::vector<Monster*>::iterator m = this->monsterSet.begin();
+             m != this->monsterSet.end(); m++) {
+            int m_x = (*m)->getX();
+            int m_y = (*m)->getY();
+            int m_r = (*m)->getRadius();
+            if ((*t)->is_entering_range(m_x, m_y, m_r)) {
+                int t_x = (*t)->get_loc_x();
+                int t_y = (*t)->get_loc_y();
+                (*t)->fire_bullet(m_x - t_x, m_y - t_y);
+            }
+        }
+    }
+}
+
+void Play_page::check_tower_bullets()
+{
+    for (std::list<Tower*>::iterator t = this->towers->begin();
+         t != this->towers->end(); t++) {
+        for (std::vector<Bullet*>::iterator b = (*t)->get_bullets()->begin();
+             b != (*t)->get_bullets()->end(); b++) {
+            // moves a bit
+            (*b)->move_a_bit();
+        }
+    }
+}

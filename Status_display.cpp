@@ -1,17 +1,20 @@
 #include "Status_display.h"
 #include "global.cpp"
 
-void Status_display::update_int(int dn)
+bool Status_display::update_int(int dn)
 {
     this->num_int += dn;
+
+    return num_int <= 0;
 }
 
-void Status_display::update_float(float dn)
+bool Status_display::update_float(float dn)
 {
     this->num_float += dn;
 
     if (this->num_float >= MAX_SCORE)
         this->num_float = MAX_SCORE;
+    return num_float <= 0;
 }
 
 void Status_display::draw()

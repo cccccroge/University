@@ -2,18 +2,51 @@
 #include "global.cpp"
 #include <iostream>
 #include <stdlib.h>
+#include "Monster.cpp"
 #include <allegro5/allegro_primitives.h>
 using namespace std;
 enum PAGE_TYPE { START = 1, PLAY, END};
 extern ALLEGRO_TIMER *count_second_timer;
 extern ALLEGRO_TIMER *game_tick_timer;
+extern ALLEGRO_TIMER *monster_pro;
 //static int _time=0;
 void Play_page::init()
 {
+
     al_draw_bitmap(bg_play, 0, 0, 0);
+    font = al_load_ttf_font("assets/terminal.ttf", 20, 0);
     this->menu = new Menu(LEVEL_WIDTH, 0);
 
     al_flip_display();
+
+    char buffer1[20], buffer2[20];
+    FILE *file, *file2;
+
+    //sprintf(buffer1, "road.txt", level);
+    file = fopen("road.txt", "r");
+    file2=fopen("monster.txt", "r");
+    this->road_grid.clear();
+
+    for(int i = 0; i < NumOfGrid; i++)
+    {
+        this->levelMap[i]= false;
+    }
+
+
+    for(int i=0; i < Num_MonsterType; i++)
+    {
+        fscanf(file2, "%s", buffer1);
+        MonsterNum[i] = atoi(buffer1);
+        printf("level:%d %d\n", 1, atoi(buffer1));
+    }
+
+    while(fscanf(file, "%s", buffer1) != EOF&&fscanf(file, "%s", buffer2) != EOF) {
+        this->levelMap[atoi(buffer1)+atoi(buffer2)*27] = true;
+        road_grid.push_back(atoi(buffer1)+atoi(buffer2)*27);
+    }
+
+    fclose(file);
+    fclose(file2);
 }
 
 bool compare_tower_y(Tower *t1, Tower *t2)
@@ -21,36 +54,40 @@ bool compare_tower_y(Tower *t1, Tower *t2)
     return (t1->get_loc_y() < t2->get_loc_y());
 }
 
+Monster*
+Play_page::create_monster()
+{
+    Monster *m = NULL;
+
+    if(MonsterNum[WOLF])
+    {
+        MonsterNum[WOLF]--;
+        m = new Wolf(ReturnPath());
+    }
+    else if(MonsterNum[WOLFKNIGHT])
+    {
+        MonsterNum[WOLFKNIGHT]--;
+        m = new WolfKnight(ReturnPath());
+    }
+    else if(MonsterNum[DEMONNIJIA])
+    {
+        MonsterNum[DEMONNIJIA]--;
+        m = new DemonNijia(ReturnPath());
+    }
+    else if(MonsterNum[CAVEMAN])
+    {
+        MonsterNum[CAVEMAN]--;
+        m = new CaveMan(ReturnPath());
+    }
+    else
+    {
+        al_stop_timer(monster_pro);
+    }
+
+    return m;
+}
+
 void Play_page::print_road(){
-    char buffer1[5], buffer2[5];
-    FILE *file;
-
-    //sprintf(buffer1, "road.txt", level);
-    file = fopen("road.txt", "r");
-
-    this->road_grid.clear();
-
-    for(int i = 0; i < NumOfGrid; i++)
-    {
-        this->levelMap[i]= false;
-    }
-/*
-    fscanf(file, "%s", buffer);
-    Monster_MAX = atoi(buffer);
-
-    for(int i=0; i < Num_MonsterType; i++)
-    {
-        fscanf(file, "%s", buffer);
-        MonsterNum[i] = atoi(buffer);
-        printf("level:%d %d\n", level, atoi(buffer));
-    }
-*/
-    while(fscanf(file, "%s", buffer1) != EOF&&fscanf(file, "%s", buffer2) != EOF) {
-        this->levelMap[atoi(buffer1)+atoi(buffer2)*27] = true;
-        //road_grid.push_back(atoi(buffer));
-    }
-
-    fclose(file);
 
     for(int i = 0; i < LEVEL_WIDTH/40; i++)//LEVEL_WIDTH =1080,  i=27
     {
@@ -65,7 +102,7 @@ void Play_page::print_road(){
 
             }
             // For debug usage, if you want to create a new map, you may turn off this comment.
-             //al_draw_text(font, al_map_rgb(0, 0, 0), j*40 + 20, i*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
+             al_draw_text(font, al_map_rgb(0, 0, 0), i*40 + 20, j*40 + 14, ALLEGRO_ALIGN_CENTER, buffer);
         }
     }
    //system("pause");
@@ -199,19 +236,33 @@ bool Play_page::run()
             else if (e.timer.source == game_tick_timer) {
                 // redraw every things
                 al_draw_bitmap(bg_play, 0, 0, 0);
-                //_time++;
-                //cout<<_time<<endl;
                 print_road();
+                for(int i=0; i<monsterSet.size(); i++)
+                {
+                    //cout<<"miku";
+                    monsterSet[i]->Draw();
+                }
                 this->print_towers();
                 if (this->selected_tower != -1) {
                     this->print_construct_hint();
                 }
                 this->menu->draw();
-                al_flip_display();
+
+                al_flip_display();//road_grid
+
+                // check win or lose
+                if(game_update_monster())return false;
+                if(monsterSet.size() == 0 && !al_get_timer_started(monster_pro))return false;
+            }
+            else if(e.timer.source == monster_pro){
+                Monster *m = create_monster();
+                if(m != NULL)
+                    monsterSet.push_back(m);
             }
         }
     }
 }
+
 
 bool Play_page::is_grid_constructable()
 {
@@ -229,4 +280,50 @@ bool Play_page::is_grid_constructable()
     return ret;
 }
 
+bool Play_page::game_update_monster(){
+    // update every monster
+    // check if it is destroyed or reaches end point
+    for(int i=0; i < monsterSet.size(); i++)
+    {
+
+        bool isDestroyed = false, isReachEnd = false;
+        /*
+        for(it = towerSet.begin();it != towerSet.end();it++){
+            if((*it)->TriggerAttack(monsterSet[i])){
+                isDestroyed = true;
+            }
+        }
+        /*TODO:*/
+        /*1. For each tower, traverse its attack set*/
+        /*2. If the monster collide with any attack, reduce the HP of the monster*/
+        /*3. Remember to set isDestroyed to "true" if monster is killed*/
+        /*Hint: Tower::TriggerAttack/*/
+
+        isReachEnd = monsterSet[i]->Move();
+        /*
+        if(isDestroyed)
+        {
+            Monster *m = monsterSet[i];
+
+            menu->Change_Coin(m->getWorth());
+            menu->Gain_Score(m->getScore());
+            monsterSet.erase(monsterSet.begin() + i);
+            i--;
+            delete m;
+
+        }
+        else */if(isReachEnd)
+        {
+            Monster *m = monsterSet[i];
+
+            if(menu->get_score_display()->update_int(m->getDamage()))
+                return true;
+
+            monsterSet.erase(monsterSet.begin() + i);
+            i--;
+            delete m;
+        }
+    }
+    return false;
+}
 
